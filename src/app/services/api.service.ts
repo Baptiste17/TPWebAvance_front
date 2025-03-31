@@ -13,7 +13,7 @@ export class ApiService {
 
   checkPing(): Promise<boolean> {
     return new Promise(resolve => {
-      this.httpClient.get("/api/ping", {responseType: "text"})
+      this.httpClient.get("/api/public/ping", {responseType: "text"})
         .subscribe({
           next: (responses: any) => {
             resolve(responses);
@@ -27,7 +27,7 @@ export class ApiService {
 
   getOnduleurs(): Promise<Onduleur[]> {
     return new Promise(resolve => {
-      this.httpClient.get("/api/onduleur")
+      this.httpClient.get("/api/private/onduleur")
         .subscribe({
           next: (responses: any) => {
             resolve(responses);
@@ -40,7 +40,7 @@ export class ApiService {
   }
   getPieces(): Promise<Piece[]> {
     return new Promise(resolve => {
-      this.httpClient.get("/api/piece")
+      this.httpClient.get("/api/private/piece")
         .subscribe({
           next: (responses: any) => {
             resolve(responses);
@@ -54,7 +54,7 @@ export class ApiService {
 
   addOnduleur(onduleur: Onduleur): Promise<Onduleur> {
     return new Promise((resolve, reject) => {
-      this.httpClient.post("/api/onduleur", onduleur)
+      this.httpClient.post("/api/private/onduleur", onduleur)
         .subscribe({
           next: (response: any) => {
             resolve(response);
@@ -68,7 +68,7 @@ export class ApiService {
 
   addPiece(piece: Piece): Promise<Piece> {
     return new Promise((resolve, reject) => {
-      this.httpClient.post("/api/piece", piece)
+      this.httpClient.post("/api/private/piece", piece)
         .subscribe({
           next: (response: any) => {
             resolve(response);
@@ -82,7 +82,7 @@ export class ApiService {
 
   removeOnduleur(onduleur: Onduleur): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.httpClient.delete("/api/onduleur", {body: onduleur})
+      this.httpClient.delete("/api/private/onduleur", {body: onduleur})
         .subscribe({
           next: () => {
             resolve();
@@ -95,7 +95,7 @@ export class ApiService {
   }
   removePiece(piece: Piece): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.httpClient.delete("/api/piece", {body: piece})
+      this.httpClient.delete("/api/private/piece", {body: piece})
         .subscribe({
           next: () => {
             resolve();
@@ -109,7 +109,7 @@ export class ApiService {
 
   updateOnduleur(onduleur: Onduleur): Promise<Onduleur> {
     return new Promise((resolve, reject) => {
-      this.httpClient.post("/api/onduleur", onduleur)
+      this.httpClient.post("/api/private/onduleur", onduleur)
         .subscribe({
           next: (response: any) => {
             resolve(response);
@@ -123,7 +123,7 @@ export class ApiService {
 
   updatePiece(piece: Piece): Promise<Piece> {
     return new Promise((resolve, reject) => {
-      this.httpClient.post("/api/piece", piece)
+      this.httpClient.post("/api/private/piece", piece)
         .subscribe({
           next: (response: any) => {
             resolve(response);
