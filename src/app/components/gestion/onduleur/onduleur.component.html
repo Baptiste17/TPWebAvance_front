@@ -1,0 +1,12 @@
+<div class="flex flex-col gap-1 items-center">
+  <div class="w-32 h-32 cursor-pointer" [ngClass]="state ? 'bg-[#3643ba]': 'bg-black'" (click)="change.emit()"></div>
+  <div class="flex justify-center items-center gap-3">
+    <div>{{ name }}</div>
+    <div>{{ power }}</div>
+    <div class="w-7 h-7 flex rounded bg-red-700 justify-center items-center text-white hover:bg-red-500 cursor-pointer"
+         (click)="delete.emit()">
+      <span>-</span>
+    </div>
+  </div>
+</div>
+
