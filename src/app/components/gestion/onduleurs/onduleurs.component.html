@@ -1,0 +1,66 @@
+<div class="m-3 flex flex-col gap-5 w-full">
+  <div class="text-xl text-[#3643ba] font-bold">
+    Gestion des types d'onduleurs
+  </div>
+
+  <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
+    <h2 class="text-2xl font-bold mb-4">Ajouter un onduleur </h2>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="mb-4">
+        <label class="block text-gray-700">Modèle de l'onduleur</label>
+        <input
+          type="text"
+          class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+          name="name"
+          [(ngModel)]="newOnduleur.name"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700">Puissance de l'onduleur</label>
+        <input
+          type="number"
+          class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+          name="power"
+          [(ngModel)]="newOnduleur.power"
+          required
+        />
+      </div>
+
+      <div class="mb-4 flex items-center">
+        <input
+          type="checkbox"
+          id="isActive"
+          name="isActive"
+          [(ngModel)]="newOnduleur.state"
+          class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+        />
+        <label for="isActive" class="text-gray-700">En production ?</label>
+      </div>
+
+
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+        [disabled]="!form.valid"
+      >
+        Ajouter
+      </button>
+    </form>
+  </div>
+<div>
+  <div class="text-xl text-[#3643ba] font-bold">
+    Onduleurs présents
+  </div>
+  <div class="flex gap-3 flex-wrap">
+    <div *ngFor="let onduleur of getOnduleurs()">
+      <app-onduleur [name]="onduleur.name"
+                 [state]="onduleur.state"
+                 (delete)="removeOnduleur(onduleur)"/>
+    </div>
+  </div>
+</div>
+
+</div>

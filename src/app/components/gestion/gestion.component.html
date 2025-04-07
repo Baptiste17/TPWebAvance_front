@@ -1,0 +1,20 @@
+<div class=" flex h-full">
+  <div class="border-r flex flex-col border-gray-200 justify-between h-full">
+    <div class="m-3 flex flex-col gap-3">
+      <div class="hover:bg-gray-100 rounded cursor-pointer p-3" [routerLink]="['onduleurs']"
+           routerLinkActive="bg-gray-200">
+        Onduleurs
+      </div>
+      <div class="hover:bg-gray-100 rounded cursor-pointer p-3" [routerLink]="['pieces']"
+           routerLinkActive="bg-gray-200">
+        Pièces
+      </div>
+      <div class="hover:bg-gray-100 rounded cursor-pointer p-3" [routerLink]="['attribution']"
+           routerLinkActive="bg-gray-200">
+        Attribution
+      </div>
+    </div>
+  </div>
+  <div class="grow"><router-outlet/></div>
+</div>
+
