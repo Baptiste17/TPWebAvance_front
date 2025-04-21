@@ -1,13 +1,15 @@
 export class Onduleur {
   id?: Number;
-  state: boolean;
+  status: boolean;
   power: Number;
-  name: string;
+  model: string;
+  pieceId: Number;
 
-  constructor(id: number, state: boolean, power: number, name: string) {
+  constructor(id: number, state: boolean, power: number, name: string, pieceId: Number) {
     this.id = id;
-    this.state = state;
+    this.status = state;
     this.power = power;
-    this.name = name;
+    this.model = name;
+    this.pieceId = pieceId;
   }
 }

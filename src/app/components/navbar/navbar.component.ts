@@ -3,6 +3,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 import {NgIf} from '@angular/common';
 import {ApiService} from '../../services/api.service';
 import {ThemeToggleComponent} from '../theme-manager/theme-manager.component';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',

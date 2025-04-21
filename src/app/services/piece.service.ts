@@ -32,4 +32,16 @@ export class PieceService {
       .catch((error: any) => {console.log(error);})
       .finally(() => this.refreshPieces());
   }
+
+  updatePiece(piece: Piece) {
+    let pieceToUpdate = this.pieces.find(p => p.id === piece.id);
+    if (!pieceToUpdate) {
+      console.error('Aucune pièce trouvée avec cet ID:', piece.id);
+      return;
+    }
+    pieceToUpdate.name = piece.name;
+    this.api.updatePiece(pieceToUpdate)
+      .catch((error: any) => {console.log(error);})
+      .finally(() => this.refreshPieces());
+  }
 }

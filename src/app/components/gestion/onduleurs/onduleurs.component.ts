@@ -4,6 +4,7 @@ import {NgForOf} from '@angular/common';
 import {Onduleur} from '../../../models/onduleur';
 import {OnduleurService} from '../../../services/onduleur.service';
 import {FormsModule} from '@angular/forms';
+import {Piece} from '../../../models/piece';
 
 @Component({
   selector: 'app-onduleurs',
@@ -20,20 +21,29 @@ export class OnduleursComponent {
 
   constructor(private onduleurService: OnduleurService) { }
 
+  getPieces(): Piece[] {
+   return this.onduleurService.getPieces()
+  }
+
   getOnduleurs(): Onduleur[] {
     return this.onduleurService.getOnduleurs();
   }
+
   newOnduleur = {
     name: '',
     power: 0,
-    state:false
+    state:false,
+    pieceId:0
 
   };
   onSubmit() {
 
-    this.onduleurService.addOnduleur(this.newOnduleur.name, this.newOnduleur.power, this.newOnduleur.state);
-    // Reset le formulaire après soumission
-    this.newOnduleur = { name: '', power: 0, state:false };
+    this.onduleurService.addOnduleur(this.newOnduleur.name, this.newOnduleur.power, this.newOnduleur.state, this.newOnduleur.pieceId);
+    this.newOnduleur = { name: '', power: 0, state:false, pieceId:0 };
+  }
+
+  invertState(id: Number | undefined) {
+    if (id !== undefined) this.onduleurService.invertState(id);
   }
 
   removeOnduleur(onduleur: Onduleur) {

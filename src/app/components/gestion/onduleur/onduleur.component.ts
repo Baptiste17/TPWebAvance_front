@@ -11,6 +11,7 @@ export class OnduleurComponent {
   @Input() name: string = "";
   @Input() power: Number = 0;
   @Input() state: boolean = false;
+  @Input() piece: string = "";
   @Output() change: EventEmitter<void> = new EventEmitter();
   @Output() delete: EventEmitter<void> = new EventEmitter();
 }
