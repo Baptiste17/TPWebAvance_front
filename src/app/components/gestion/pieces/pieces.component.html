@@ -1,10 +1,10 @@
 <div class="m-3 flex flex-col gap-5 w-full">
   <div class="text-xl text-[#3643ba] font-bold">
-    Gestion des types d'onduleurs
+    Gestion des pièces
   </div>
 
-  <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
-    <h2 class="text-2xl font-bold mb-4">Ajouter un onduleur </h2>
+  <div class="max-w-md mr-auto p-6 bg-white shadow-lg rounded-2xl">
+    <h2 class="text-2xl font-bold mb-4">Ajouter une pièce </h2>
 
     <form (ngSubmit)="onSubmit()" #form="ngForm">
       <div class="mb-4">
@@ -28,12 +28,13 @@
     </form>
   </div>
   <div>
-    <div class="text-xl text-[#3643ba] font-bold">
+    <div class="text-xl text-[#3643ba] mt-6 font-bold">
       Pièces présentes
     </div>
-    <div class="flex gap-3 flex-wrap">
+    <div class="flex gap-3 mt-4 flex-wrap">
       <div *ngFor="let piece of getPieces()">
-        <app-onduleur [name]="piece.name"
+        <app-piece [piece]="piece.name"
+                   (change)="piece.name = $event;updatePiece(piece)"
                       (delete)="removePiece(piece)"/>
       </div>
     </div>

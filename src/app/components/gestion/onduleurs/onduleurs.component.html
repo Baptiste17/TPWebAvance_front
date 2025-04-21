@@ -1,9 +1,9 @@
 <div class="m-3 flex flex-col gap-5 w-full">
   <div class="text-xl text-[#3643ba] font-bold">
-    Gestion des types d'onduleurs
+    Gestion des onduleurs
   </div>
 
-  <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
+  <div class="max-w-md mr-auto  p-6 bg-white shadow-lg rounded-2xl">
     <h2 class="text-2xl font-bold mb-4">Ajouter un onduleur </h2>
 
     <form (ngSubmit)="onSubmit()" #form="ngForm">
@@ -40,6 +40,22 @@
         <label for="isActive" class="text-gray-700">En production ?</label>
       </div>
 
+      <div class="mb-4">
+        <label class="block text-gray-700" for="categoryId">Lieu</label>
+        <select
+          id="categoryId"
+          name="categoryId"
+          [(ngModel)]="newOnduleur.pieceId"
+          class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+          required
+        >
+          <option value="" disabled selected>Sélectionnez un lieu</option>
+          <option *ngFor="let piece of getPieces()" [value]="piece.id">
+            {{ piece.name }}
+          </option>
+        </select>
+      </div>
+
 
       <button
         type="submit"
@@ -51,13 +67,15 @@
     </form>
   </div>
 <div>
-  <div class="text-xl text-[#3643ba] font-bold">
+  <div class="text-xl text-[#3643ba] mt-6 font-bold">
     Onduleurs présents
   </div>
-  <div class="flex gap-3 flex-wrap">
+  <div class="flex gap-3 mt-4 flex-wrap">
     <div *ngFor="let onduleur of getOnduleurs()">
-      <app-onduleur [name]="onduleur.name"
-                 [state]="onduleur.state"
+      <app-onduleur [name]="onduleur.model"
+                 [state]="onduleur.status"
+                    [power]="onduleur.power"
+                    (change)="invertState(onduleur.id)"
                  (delete)="removeOnduleur(onduleur)"/>
     </div>
   </div>

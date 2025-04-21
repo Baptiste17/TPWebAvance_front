@@ -1,1 +1,29 @@
-<p>test</p>
+<div class="flex p-3 gap-3 w-full">
+  <div class="grow flex flex-col gap-3 items-center justify-center bg-white rounded-2xl shadow p-4 border border-gray-200">
+    <div class="text-3xl font-bold">{{getOnduleursFromState(true).length}}</div>
+    <div class="text-sm text-gray-600">Onduleurs en service</div>
+  </div>
+  <div class="grow flex flex-col gap-3 items-center justify-center bg-white rounded-2xl shadow p-4 border border-gray-200">
+    <div class="text-3xl font-bold">{{getOnduleursFromState(false).length}}</div>
+    <div class="text-sm text-gray-600">Onduleurs en stock</div>
+  </div>
+</div>
+
+<div class="text-xl p-3 text-[#3643ba] font-bold">
+  Onduleurs présents
+</div>
+<div class="p-4 flex gap-6">
+  <div *ngFor="let group of groupedByPiece" class="bg-white rounded-2xl shadow p-4 border border-gray-200">
+    <h2 class="text-xl font-bold text-gray-800 mb-2">
+      {{ group.piece.name }}
+    </h2>
+
+    <ul class="list-disc pl-5 text-gray-700">
+      <li *ngFor="let onduleur of group.onduleurs">
+        {{ onduleur.model }} — {{ onduleur.power }}W
+      </li>
+    </ul>
+  </div>
+</div>
+
+

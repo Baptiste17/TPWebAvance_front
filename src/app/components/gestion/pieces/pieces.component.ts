@@ -5,14 +5,15 @@ import {OnduleurComponent} from '../onduleur/onduleur.component';
 import {PieceService} from '../../../services/piece.service';
 import {Piece} from '../../../models/piece';
 import {Onduleur} from '../../../models/onduleur';
+import {PieceComponent} from '../piece/piece.component';
 
 @Component({
   selector: 'app-pieces',
   imports: [
     FormsModule,
     NgForOf,
-    OnduleurComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PieceComponent
   ],
   templateUrl: './pieces.component.html',
   styleUrl: './pieces.component.css'
@@ -36,5 +37,9 @@ export class PiecesComponent {
 
   removePiece(piece: Piece) {
     this.pieceService.removePiece(piece);
+  }
+
+  updatePiece(piece: Piece) {
+    this.pieceService.updatePiece(piece);
   }
 }
