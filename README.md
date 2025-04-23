@@ -7,6 +7,7 @@ Gestionnaire d'onduleurs développé avec **Angular** et **Tailwind CSS** pour l
 ## Fonctionnalités
 
 - Authentification via Keycloak
+- Requêtes API sécurisées
 - Dashboard interactif
 - Interface de gestion
 - Système de thème clair/sombre
@@ -20,6 +21,7 @@ Gestionnaire d'onduleurs développé avec **Angular** et **Tailwind CSS** pour l
 ### Page de connexion
 ![image](https://github.com/user-attachments/assets/1cd8a374-7ff2-457d-888e-a23bc497627a)
 
+![image](https://github.com/user-attachments/assets/6a422d4b-46b3-46ff-b016-7bb0a50e3da0)
 
 ### Dashboard
 
