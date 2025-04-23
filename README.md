@@ -21,7 +21,8 @@ Gestionnaire d'onduleurs développé avec **Angular** et **Tailwind CSS** pour l
 ### Page de connexion
 ![image](https://github.com/user-attachments/assets/1cd8a374-7ff2-457d-888e-a23bc497627a)
 
-![image](https://github.com/user-attachments/assets/6a422d4b-46b3-46ff-b016-7bb0a50e3da0)
+![Animation](https://github.com/user-attachments/assets/8fcc7b3d-4e74-43e4-9ca2-ec6ca08c4259)
+
 
 ### Dashboard
 
